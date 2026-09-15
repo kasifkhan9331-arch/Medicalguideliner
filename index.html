@@ -599,7 +599,147 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
   });
+/* =========================
+   BIOCHEMISTRY CHAPTERS
+   ========================= */
 
+const biochemistryChapters = [
+  "Introduction to Biochemistry",
+  "Cell Biology",
+  "Biological Membranes",
+  "Carbohydrates",
+  "Lipids",
+  "Proteins",
+  "Amino Acids",
+  "Enzymes",
+  "Vitamins",
+  "Minerals",
+  "Nucleic Acids",
+  "DNA Structure & Replication",
+  "RNA & Transcription",
+  "Protein Synthesis",
+  "Gene Expression & Regulation",
+  "Bioenergetics",
+  "Biological Oxidation",
+  "Electron Transport Chain",
+  "Oxidative Phosphorylation",
+  "Metabolism of Carbohydrates",
+  "Metabolism of Lipids",
+  "Metabolism of Amino Acids",
+  "Purine & Pyrimidine Metabolism",
+  "Heme & Hemoglobin Metabolism",
+  "Plasma Proteins",
+  "Clinical Biochemistry",
+  "Acid-Base Balance",
+  "Nutrition & Nutritional Disorders",
+  "Molecular Biology Techniques",
+  "Inborn Errors of Metabolism"
+];
+
+document.querySelectorAll(".card").forEach(function(card) {
+
+  const heading = card.querySelector("h3");
+
+  if (heading && heading.textContent.trim() === "Biochemistry") {
+
+    card.style.cursor = "pointer";
+
+    card.addEventListener("click", function() {
+
+      const oldPanel = document.getElementById("biochem-panel");
+      if (oldPanel) oldPanel.remove();
+
+      const panel = document.createElement("div");
+      panel.id = "biochem-panel";
+
+      panel.innerHTML = `
+        <div style="
+          position:fixed;
+          inset:0;
+          background:rgba(0,0,0,0.55);
+          z-index:9999;
+          overflow-y:auto;
+          padding:30px 15px;
+        ">
+
+          <div style="
+            max-width:850px;
+            margin:auto;
+            background:white;
+            border-radius:20px;
+            padding:25px;
+            box-shadow:0 10px 40px rgba(0,0,0,0.25);
+          ">
+
+            <div style="
+              display:flex;
+              justify-content:space-between;
+              align-items:center;
+              margin-bottom:20px;
+            ">
+              <h2 style="margin:0;color:#1d4ed8;">
+                Biochemistry
+              </h2>
+
+              <button id="close-biochem" style="
+                border:none;
+                background:#ef4444;
+                color:white;
+                border-radius:50%;
+                width:38px;
+                height:38px;
+                font-size:20px;
+                cursor:pointer;
+              ">×</button>
+            </div>
+
+            <div id="biochem-chapters"></div>
+
+          </div>
+        </div>
+      `;
+
+      document.body.appendChild(panel);
+
+      const chapterBox =
+        document.getElementById("biochem-chapters");
+
+      biochemistryChapters.forEach(function(chapter, index) {
+
+        const item = document.createElement("div");
+
+        item.style.cssText = `
+          padding:14px 16px;
+          margin:8px 0;
+          border:1px solid #dbeafe;
+          border-radius:10px;
+          background:#f8fafc;
+          font-size:16px;
+          color:#111827;
+        `;
+
+        item.textContent = (index + 1) + ". " + chapter;
+
+        chapterBox.appendChild(item);
+
+      });
+
+      document.getElementById("close-biochem").onclick =
+        function() {
+          panel.remove();
+        };
+
+      panel.addEventListener("click", function(e) {
+        if (e.target === panel.firstElementChild) {
+          panel.remove();
+        }
+      });
+
+    });
+
+  }
+
+});
 });
 </script>
 </body>
