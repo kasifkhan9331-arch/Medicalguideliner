@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Guideliner | Medical Study Resources</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#f5f9fc;
+  color:#17212b;
+}
+
+header{
+  background:white;
+  padding:18px 7%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 2px 12px rgba(0,0,0,.06);
+  position:sticky;
+  top:0;
+  z-index:10;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  color:#087ea4;
+}
+
+.logo span{
+  color:#17212b;
+}
+
+nav a{
+  text-decoration:none;
+  color:#34404a;
+  margin-left:20px;
+  font-size:14px;
+}
+
+.hero{
+  padding:70px 7%;
+  background:linear-gradient(135deg,#e8f8ff,#ffffff);
+  text-align:center;
+}
+
+.hero h1{
+  font-size:42px;
+  margin-bottom:15px;
+}
+
+.hero h1 span{
+  color:#087ea4;
+}
+
+.hero p{
+  max-width:650px;
+  margin:auto;
+  color:#5b6770;
+  line-height:1.7;
+  font-size:16px;
+}
+
+.buttons{
+  margin-top:28px;
+}
+
+.btn{
+  display:inline-block;
+  padding:14px 22px;
+  border-radius:10px;
+  text-decoration:none;
+  margin:5px;
+  font-weight:bold;
+}
+
+.primary{
+  background:#087ea4;
+  color:white;
+}
+
+.secondary{
+  background:white;
+  color:#087ea4;
+  border:1px solid #087ea4;
+}
+
+section{
+  padding:55px 7%;
+}
+
+.section-title{
+  text-align:center;
+  margin-bottom:30px;
+}
+
+.section-title h2{
+  font-size:28px;
+}
+
+.section-title p{
+  color:#69757d;
+  margin-top:8px;
+}
+
+.search{
+  max-width:600px;
+  margin:0 auto 35px;
+}
+
+.search input{
+  width:100%;
+  padding:16px 18px;
+  border:1px solid #d7e1e7;
+  border-radius:12px;
+  font-size:15px;
+  outline:none;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:16px;
+}
+
+.card{
+  background:white;
+  padding:25px 15px;
+  border-radius:15px;
+  text-align:center;
+  box-shadow:0 4px 18px rgba(0,0,0,.06);
+  transition:.2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+}
+
+.icon{
+  font-size:30px;
+  margin-bottom:12px;
+}
+
+.card h3{
+  font-size:16px;
+}
+
+.resources{
+  background:#ffffff;
+}
+
+.resource-card{
+  background:#f8fbfd;
+  padding:25px;
+  border-radius:15px;
+  border:1px solid #e1ebf0;
+}
+
+.resource-card h3{
+  margin:10px 0;
+}
+
+.resource-card p{
+  color:#66737c;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.resource-card a{
+  display:inline-block;
+  margin-top:15px;
+  color:#087ea4;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.cta{
+  margin:0 7% 55px;
+  padding:45px 25px;
+  background:#087ea4;
+  color:white;
+  text-align:center;
+  border-radius:20px;
+}
+
+.cta h2{
+  margin-bottom:12px;
+}
+
+.cta p{
+  opacity:.9;
+  margin-bottom:22px;
+}
+
+.cta .btn{
+  background:white;
+  color:#087ea4;
+}
+
+footer{
+  background:#17212b;
+  color:white;
+  text-align:center;
+  padding:30px 7%;
+}
+
+footer p{
+  color:#b9c4ca;
+  font-size:13px;
+  margin-top:8px;
+}
+
+@media(max-width:650px){
+  nav{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:32px;
+  }
+
+  section{
+    padding:45px 5%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">Medical<span>Guideliner</span></div>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#subjects">Subjects</a>
+    <a href="#resources">Resources</a>
+    <a href="#pdfs">PDFs</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Study Smarter.<br><span>Revise Better.</span></h1>
+
+  <p>
+    High-yield medical notes, exam-focused resources,
+    visual learning and professionally designed PDFs
+    made for medical students.
+  </p>
+
+  <div class="buttons">
+    <a href="#subjects" class="btn primary">Explore Subjects</a>
+    <a href="#pdfs" class="btn secondary">Premium PDFs</a>
+  </div>
+</section>
+
+<section id="subjects">
+
+  <div class="section-title">
+    <h2>📚 Explore Subjects</h2>
+    <p>Choose a subject and start learning</p>
+  </div>
+
+  <div class="search">
+    <input type="text" placeholder="🔍 Search subjects or chapters...">
+  </div>
+
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🫀</div>
+      <h3>Anatomy</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h3>Physiology</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧪</div>
+      <h3>Biochemistry</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">💊</div>
+      <h3>Pharmacology</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔬</div>
+      <h3>Pathology</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🦠</div>
+      <h3>Microbiology</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🩺</div>
+      <h3>Medicine</h3>
+    </div>
+
+    <div class="card">
+      <div class="icon">🔪</div>
+      <h3>Surgery</h3>
+    </div>
+
+  </div>
+</section>
+
+<section class="resources" id="resources">
+
+  <div class="section-title">
+    <h2>✨ Featured Resources</h2>
+    <p>Designed for quick and effective revision</p>
+  </div>
+
+  <div class="grid">
+
+    <div class="resource-card">
+      <div class="icon">📝</div>
+      <h3>High-Yield Notes</h3>
+      <p>
+        Concise and exam-focused notes covering
+        important medical concepts.
+      </p>
+      <a href="#">Explore Notes →</a>
+    </div>
+
+    <div class="resource-card">
+      <div class="icon">🖼️</div>
+      <h3>Medical Infographics</h3>
+      <p>
+        Learn difficult concepts through
+        clear and visually engaging infographics.
+      </p>
+      <a href="#">View Infographics →</a>
+    </div>
+
+    <div class="resource-card" id="pdfs">
+      <div class="icon">📄</div>
+      <h3>Premium PDFs</h3>
+      <p>
+        Professionally designed chapter-wise PDFs
+        for focused revision and preparation.
+      </p>
+      <a href="#">Browse PDFs →</a>
+    </div>
+
+  </div>
+</section>
+
+<div class="cta">
+  <h2>📖 Make Your Medical Revision Easier</h2>
+  <p>
+    Explore high-yield resources created to help
+    you understand, revise and remember.
+  </p>
+
+  <a href="#subjects" class="btn">Start Learning</a>
+</div>
+
+<footer>
+  <strong>Medical Guideliner</strong>
+
+  <p>
+    Medical education resources for learning and revision.
+  </p>
+
+  <p>
+    Disclaimer: For educational purposes only.
+  </p>
+</footer>
+
+</body>
+</html>
