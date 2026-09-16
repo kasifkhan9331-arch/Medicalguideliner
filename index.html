@@ -557,7 +557,17 @@ footer p{
   </p>
 </footer>
 <script>
-  
+  const searchInput = document.getElementById("pdfSearch");
+const cards = document.querySelectorAll("#premium-pdfs .resource-card");
+
+searchInput.addEventListener("input", function () {
+  const query = this.value.toLowerCase().trim();
+
+  cards.forEach(card => {
+    const text = card.textContent.toLowerCase();
+    card.style.display = text.includes(query) ? "" : "none";
+  });
+});
 </script>
 </body>
 </html>
