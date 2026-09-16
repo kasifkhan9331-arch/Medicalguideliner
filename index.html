@@ -253,23 +253,26 @@ footer p{
   display:grid;
   grid-template-columns:1fr;
   gap:20px;
-}
-
-.resource-card{
-  width:100%;
-
-  #premium-pdfs .resource-grid{
-  display:block !important;
+}#premium-pdfs .resource-grid{
+  display:flex !important;
+  flex-direction:column !important;
+  gap:20px !important;
   width:100% !important;
+  align-items:stretch !important;
 }
 
 #premium-pdfs .resource-card{
   display:block !important;
   width:100% !important;
-  max-width:none !important;
-  margin-bottom:20px;
-  grid-column:1 / -1 !important;
+  max-width:100% !important;
+  box-sizing:border-box !important;
+  margin:0 0 20px 0 !important;
 }</style>
+
+.resource-card{
+  width:100%;
+
+  
 </head>
 
 <body>
