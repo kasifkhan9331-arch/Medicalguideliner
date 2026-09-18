@@ -590,6 +590,50 @@ searchInput.addEventListener("input", function () {
     card.style.display = text.includes(query) ? "" : "none";
   });
 });
-</script>
+</script><script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+async function buyDiseaseNotes() {
+  try {
+    const response = await fetch("/api/create-order", {
+      method: "POST"
+    });
+
+    const order = await response.json();
+
+    if (!response.ok) {
+      alert("Order create nahi hua.");
+      return;
+    }
+
+    const options = {
+      key: "rzp_live_TdZAl2lnmUDgb6",
+      amount: order.amount,
+      currency: "INR",
+      name: "Medicalguideliner",
+      description: "High-Yield Disease Notes",
+      order_id: order.id,
+
+      handler: function (payment) {
+        alert(
+          "Payment received. Verification ke baad PDF access milega."
+        );
+        console.log(payment);
+      },
+
+      theme: {
+        color: "#087f9f"
+      }
+    };
+
+    const razorpay = new Razorpay(options);
+    razorpay.open();
+
+  } catch (error) {
+    alert("Something went wrong.");
+    console.error(error);
+  }
+}
+      </script>
 </body>
 </html>
