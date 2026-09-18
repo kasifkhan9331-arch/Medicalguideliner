@@ -569,19 +569,7 @@ footer p{
     Disclaimer: For educational purposes only.
   </p>
 </footer>
-<script>
-  const searchInput = document.getElementById("pdfSearch");
-const cards = document.querySelectorAll("#premium-pdfs .resource-card");
-
-searchInput.addEventListener("input", function () {
-  const query = this.value.toLowerCase().trim();
-
-  cards.forEach(card => {
-    const text = card.textContent.toLowerCase();
-    card.style.display = text.includes(query) ? "" : "none";
-  });
-});
-</script><script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
 <script>
 async function buyDiseaseNotes() {
@@ -605,34 +593,38 @@ async function buyDiseaseNotes() {
       description: "High-Yield Disease Notes",
       order_id: order.id,
 
-      
-      handler: async function (payment) {
-  try {
-    const response = await fetch("/api/verify-payment", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        razorpay_order_id: payment.razorpay_order_id,
-        razorpay_payment_id: payment.razorpay_payment_id,
-        razorpay_signature: payment.razorpay_signature
-      })
-    });
+      handler: async function(payment) {
+        const response = await fetch("/api/verify-payment", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify({
+            razorpay_order_id: payment.razorpay_order_id,
+            razorpay_payment_id: payment.razorpay_payment_id,
+            razorpay_signature: payment.razorpay_signature
+          })
+        });
 
-    const result = await response.json();
+        const result = await response.json();
 
-    if (result.verified) {
-      alert("Payment verified successfully!");
-    } else {
-      alert("Payment verification failed.");
-    }
+        if (result.verified) {
+          alert("Payment verified successfully!");
+        } else {
+          alert("Payment verification failed.");
+        }
+      }
+    };
+
+    const razorpay = new Razorpay(options);
+    razorpay.open();
 
   } catch (error) {
-    alert("Verification error. Please contact support.");
+    alert("Something went wrong.");
     console.error(error);
   }
 }
-      </script>
+</script>
+
 </body>
 </html>
