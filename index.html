@@ -581,8 +581,12 @@ async function buyDiseaseNotes() {
     const order = await response.json();
 
     if (!response.ok) {
-      alert("Order create nahi hua.");
-      return;
+  alert(
+    "Order Error: " +
+    (order.error?.description || order.error || "Unknown error")
+  );
+  console.error(order);
+  return;
     }
 
     const options = {
