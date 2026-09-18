@@ -1,5 +1,3 @@
-const crypto = require("crypto");
-
 module.exports = async (req, res) => {
   if (req.method !== "POST") {
     return res.status(405).json({
@@ -34,10 +32,10 @@ module.exports = async (req, res) => {
       return res.status(response.status).json(order);
     }
 
-    res.status(200).json(order);
+    return res.status(200).json(order);
 
   } catch (error) {
-    res.status(500).json({
+    return res.status(500).json({
       error: "Order creation failed"
     });
   }
