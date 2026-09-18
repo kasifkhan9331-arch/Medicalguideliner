@@ -613,23 +613,31 @@ async function buyDiseaseNotes() {
       description: "High-Yield Disease Notes",
       order_id: order.id,
 
-      handler: function (payment) {
-        alert(
-          "Payment received. Verification ke baad PDF access milega."
-        );
-        console.log(payment);
+      
+      handler: async function (payment) {
+  try {
+    const response = await fetch("/api/verify-payment", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
       },
+      body: JSON.stringify({
+        razorpay_order_id: payment.razorpay_order_id,
+        razorpay_payment_id: payment.razorpay_payment_id,
+        razorpay_signature: payment.razorpay_signature
+      })
+    });
 
-      theme: {
-        color: "#087f9f"
-      }
-    };
+    const result = await response.json();
 
-    const razorpay = new Razorpay(options);
-    razorpay.open();
+    if (result.verified) {
+      alert("Payment verified successfully!");
+    } else {
+      alert("Payment verification failed.");
+    }
 
   } catch (error) {
-    alert("Something went wrong.");
+    alert("Verification error. Please contact support.");
     console.error(error);
   }
 }
